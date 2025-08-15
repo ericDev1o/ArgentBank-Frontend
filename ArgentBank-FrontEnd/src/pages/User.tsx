@@ -1,3 +1,5 @@
+import Footer from "../components/UI/Footer";
+
 export default function User() {
     return <>
         <nav className="main-nav">
@@ -57,8 +59,6 @@ export default function User() {
         </div>
       </section>
     </main>
-    <footer className="footer">
-      <p className="footer-text">Copyright 2020 Argent Bank</p>
-    </footer>
+    <Footer />
     </>
 }
