@@ -14,7 +14,8 @@ dist-ssr
 .yarn
 .yarnrc.yml
 yarn.lock
-*.config.js
+.pnp.*
+*.config.*
 
 # Editor directories and files
 .vscode/*

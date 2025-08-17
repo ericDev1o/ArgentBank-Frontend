@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
-import Header from '../UI/Header';
+import Header from '../UI/header/Header';
 import Footer from '../UI/Footer';
 
-const Layout = ({ children }: { children: ReactNode }) => (
+const Layout = ({ children, logIn }: { children: ReactNode, logIn: boolean }) => (
     <>
-        <Header />
+        <Header logIn={logIn}/>
         { children }
         <Footer />
     </>
