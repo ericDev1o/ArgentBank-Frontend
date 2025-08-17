@@ -1,27 +1,7 @@
-import Footer from "../components/UI/Footer";
+import Layout from "../components/containers/Layout";
 
 export default function User() {
-    return <>
-        <nav className="main-nav">
-      <a className="main-nav-logo" href="/">
-        <img
-          className="main-nav-logo-image"
-          src="/img/argentBankLogo.png"
-          alt="Argent Bank Logo"
-        />
-        <h1 className="sr-only">Argent Bank</h1>
-      </a>
-      <div>
-        <a className="main-nav-item" href="./1">
-          <i className="fa fa-user-circle"></i>
-          Tony
-        </a>
-        <a className="main-nav-item" href="/">
-          <i className="fa fa-sign-out"></i>
-          Sign Out
-        </a>
-      </div>
-    </nav>
+    return <Layout logIn={false}>
     <main className="main bg-dark">
       <div className="header">
         <h2>Welcome back<br/>Tony Jarvis!</h2>
@@ -59,6 +39,5 @@ export default function User() {
         </div>
       </section>
     </main>
-    <Footer />
-    </>
+    </Layout>
 }
