@@ -19,6 +19,16 @@ body {
 
 .bg-dark {
   background-color: #12002b;
+  padding: 3rem 0;
+}
+
+.main-bg-sign {
+  padding-bottom: 4.35rem;
+}
+
+.main-bg-user {
+  padding-bottom: 0.01rem;
+
 }
 
 .user-welcome-title {
