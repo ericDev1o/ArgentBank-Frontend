@@ -27,12 +27,15 @@ body {
 }
 
 .main-bg-user {
+  padding-top: 1.35rem;
   padding-bottom: 0.01rem;
 
 }
 
 .user-welcome-title {
   margin-top: 0;
+  font-size: 32px;
+  margin-bottom: 1.3rem;
 }
 
 .sr-only {
