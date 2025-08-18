@@ -2,11 +2,11 @@ import Layout from "../components/containers/Layout";
 
 export default function User() {
     return <Layout logIn={false}>
-    <main className="main bg-dark">
-      <div className="header">
-        <h2>Welcome back<br/>Tony Jarvis!</h2>
+    <main className="main bg-dark main-bg-user">
+      <section className="user-welcome">
+        <h2 className="user-welcome-title">Welcome back<br/>Tony Jarvis!</h2>
         <button className="edit-button">Edit Name</button>
-      </div>
+      </section>
       <h2 className="sr-only">Accounts</h2>
       <section className="account">
         <div className="account-content-wrapper">

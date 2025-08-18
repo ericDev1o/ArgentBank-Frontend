@@ -19,6 +19,23 @@ body {
 
 .bg-dark {
   background-color: #12002b;
+  padding: 3rem 0;
+}
+
+.main-bg-sign {
+  padding-bottom: 4.35rem;
+}
+
+.main-bg-user {
+  padding-top: 1.35rem;
+  padding-bottom: 0.01rem;
+
+}
+
+.user-welcome-title {
+  margin-top: 0;
+  font-size: 32px;
+  margin-bottom: 1.3rem;
 }
 
 .sr-only {
@@ -56,6 +73,10 @@ body {
   margin-right: 0.5rem;
 }
 
+.main-nav-item-user {
+  margin-right: 12.5px;
+}
+
 .main-nav-item:hover {
   text-decoration: underline;
 }
@@ -68,6 +89,14 @@ body {
 .main-nav-logo-image {
   max-width: 100%;
   width: 200px;
+}
+
+.fa-user-circle {
+  margin-right: 5px;
+}
+
+.fa-sign-out {
+  margin-right: 5px;
 }
 
 .hero {
@@ -170,7 +199,6 @@ body {
   background-color: white;
   width: 300px;
   margin: 0 auto;
-  margin-top: 3rem;
   padding: 2rem;
 }
 
@@ -259,7 +287,7 @@ body {
   padding: 10px;
 }
 
-.header {
+.user-welcome {
   color: #fff;
   margin-bottom: 2rem;
 }
