@@ -1,13 +1,18 @@
-import { useStore } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react';
 
 import Layout from "../components/containers/Layout";
 import SignIn from './SignIn';
-import { AppStore } from '../app/store';
+import { State } from '../app/types';
 
 export default function User() {
-  const store:AppStore = useStore()
+  const token = useSelector((state: State) => state.token)
 
-  if(store.getState().token)
+  useEffect(() => {
+    console.log('Token updated:', token)
+  }, [token])
+
+  if(token)
     return <Layout logIn={false}>
       <main className="main bg-dark main-bg-user">
         <section className="user-welcome">

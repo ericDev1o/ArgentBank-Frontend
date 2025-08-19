@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
-import { useStore } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom'
 
 import Layout from "../components/containers/Layout";
-import { AppStore } from "../app/store";
 
 export default function SignIn() {
-  const store:AppStore = useStore()
-  const [token, setToken] = useState(store.getState().token)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    store.subscribe(() => {
-      setToken(store.getState().token)
-    }
-  )}, [store])
+  const handleSignIn = (e: React.MouseEvent) => {
+    e.preventDefault()
+    dispatch(
+      {
+        type:'CONNECT',
+        payload: 'TODOtestToken'
+      })
+      navigate('/user/1')
+  }
 
   return <Layout logIn={true}>
     <main className="main bg-dark main-bg-sign">
@@ -32,17 +35,12 @@ export default function SignIn() {
             <input type="checkbox" id="remember-me"/>
             <label htmlFor="remember-me">Remember me</label>
           </div>
-          <a 
-            href="./1" 
+          <button 
             className="sign-in-button" 
-            onClick={() => store.dispatch(
-              {
-                type:'CONNECT',
-                payload: 'TODOtestToken'
-              })}
+            onClick={handleSignIn}
           >
             Sign In
-          </a>
+          </button>
         </form>
       </section>
     </main>

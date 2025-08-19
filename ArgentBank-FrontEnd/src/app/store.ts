@@ -1,23 +1,26 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { State } from './types'
 
-let state = {
+const initialState: State = {
     token: null
 }
 
-const reducer = (currentState, action) => {
+type Action = 
+| {type:'CONNECT', payload: string}
+| {type:'DISCONNECT'}
+
+const reducer = (currentState:State = initialState, action: Action): State => {
     switch (action.type) {
         case 'CONNECT':
-            const tokenStored = [...currentState.token, action.payload]
-            return {...currentState, token: tokenStored}
+            return {...currentState, token: action.payload}
+        case 'DISCONNECT':
+            return {...currentState, token: null}
         default:
             return currentState
     }
 }
 
 export const argentBankStore = configureStore({
-    preloadedState: state,
+    preloadedState: initialState,
     reducer
 })
-
-export type AppStore = typeof argentBankStore
-//export type RootState = ReturnType<AppStore['getState']>
