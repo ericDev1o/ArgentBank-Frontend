@@ -1,43 +1,51 @@
+import { useStore } from 'react-redux'
+
 import Layout from "../components/containers/Layout";
+import SignIn from './SignIn';
+import { AppStore } from '../app/store';
 
 export default function User() {
+  const store:AppStore = useStore()
+
+  if(store.getState().token)
     return <Layout logIn={false}>
-    <main className="main bg-dark main-bg-user">
-      <section className="user-welcome">
-        <h2 className="user-welcome-title">Welcome back<br/>Tony Jarvis!</h2>
-        <button className="edit-button">Edit Name</button>
-      </section>
-      <h2 className="sr-only">Accounts</h2>
-      <section className="account">
-        <div className="account-content-wrapper">
-          <h3 className="account-title">Argent Bank Checking (x8349)</h3>
-          <p className="account-amount">$2,082.79</p>
-          <p className="account-amount-description">Available Balance</p>
-        </div>
-        <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
-        </div>
-      </section>
-      <section className="account">
-        <div className="account-content-wrapper">
-          <h3 className="account-title">Argent Bank Savings (x6712)</h3>
-          <p className="account-amount">$10,928.42</p>
-          <p className="account-amount-description">Available Balance</p>
-        </div>
-        <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
-        </div>
-      </section>
-      <section className="account">
-        <div className="account-content-wrapper">
-          <h3 className="account-title">Argent Bank Credit Card (x8349)</h3>
-          <p className="account-amount">$184.30</p>
-          <p className="account-amount-description">Current Balance</p>
-        </div>
-        <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
-        </div>
-      </section>
-    </main>
+      <main className="main bg-dark main-bg-user">
+        <section className="user-welcome">
+          <h2 className="user-welcome-title">Welcome back<br/>Tony Jarvis!</h2>
+          <button className="edit-button">Edit Name</button>
+        </section>
+        <h2 className="sr-only">Accounts</h2>
+        <section className="account">
+          <div className="account-content-wrapper">
+            <h3 className="account-title">Argent Bank Checking (x8349)</h3>
+            <p className="account-amount">$2,082.79</p>
+            <p className="account-amount-description">Available Balance</p>
+          </div>
+          <div className="account-content-wrapper cta">
+            <button className="transaction-button">View transactions</button>
+          </div>
+        </section>
+        <section className="account">
+          <div className="account-content-wrapper">
+            <h3 className="account-title">Argent Bank Savings (x6712)</h3>
+            <p className="account-amount">$10,928.42</p>
+            <p className="account-amount-description">Available Balance</p>
+          </div>
+          <div className="account-content-wrapper cta">
+            <button className="transaction-button">View transactions</button>
+          </div>
+        </section>
+        <section className="account">
+          <div className="account-content-wrapper">
+            <h3 className="account-title">Argent Bank Credit Card (x8349)</h3>
+            <p className="account-amount">$184.30</p>
+            <p className="account-amount-description">Current Balance</p>
+          </div>
+          <div className="account-content-wrapper cta">
+            <button className="transaction-button">View transactions</button>
+          </div>
+        </section>
+      </main>
     </Layout>
+  else return <SignIn />
 }
