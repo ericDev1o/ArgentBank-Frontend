@@ -1,8 +1,7 @@
 import Layout from "../components/containers/Layout";
-import Footer from "../components/UI/Footer";
 
 export default function Home() {
-    return <Layout logIn={true}>
+    return <Layout signIn={true}>
         <main>
           <div className="hero">
             <section className="hero-content">

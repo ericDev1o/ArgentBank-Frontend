@@ -1,7 +1,7 @@
 import Layout from "../components/containers/Layout";
 
 export default function User() {
-    return <Layout logIn={false}>
+    return <Layout signIn={false}>
     <main className="main bg-dark main-bg-user">
       <section className="user-welcome">
         <h2 className="user-welcome-title">Welcome back<br/>Tony Jarvis!</h2>

@@ -1,7 +1,7 @@
 import Layout from "../components/containers/Layout";
 
 export default function SignIn() {
-    return <Layout logIn={true}>
+    return <Layout signIn={true}>
       <main className="main bg-dark main-bg-sign">
         <section className="sign-in-content">
           <i className="fa fa-user-circle sign-in-icon"></i>
