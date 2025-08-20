@@ -1,17 +1,16 @@
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
+import { connectSlice } from "../../../features/connect/connectSlice"
+
 export default function HeaderLogout() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleSignOut = (e: React.MouseEvent) => {
     e.preventDefault()
-    dispatch(
-      {
-        type:'DISCONNECT'
-      })
-      navigate('/')
+    dispatch(connectSlice.actions.disconnect())
+    navigate('/')
   }
   return <div>
       <a className="main-nav-item main-nav-item-user" href="./1">
