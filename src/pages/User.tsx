@@ -1,12 +1,11 @@
-import { useSelector } from 'react-redux'
 import { useEffect } from 'react';
 
 import Layout from "../components/containers/Layout";
 import SignIn from './SignIn';
-import { State } from '../app/types';
+import { getToken } from '../app/selectors';
 
 export default function User() {
-  const token = useSelector((state: State) => state.token)
+  const token = getToken()
 
   useEffect(() => {
     console.log('Token updated:', token)

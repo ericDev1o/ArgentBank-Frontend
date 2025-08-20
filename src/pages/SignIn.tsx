@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom'
 
 import Layout from "../components/containers/Layout";
+import { connect } from "../app/actions";
 
 export default function SignIn() {
   const dispatch = useDispatch()
@@ -9,12 +10,8 @@ export default function SignIn() {
 
   const handleSignIn = (e: React.MouseEvent) => {
     e.preventDefault()
-    dispatch(
-      {
-        type:'CONNECT',
-        payload: 'TODOtestToken'
-      })
-      navigate('/user/1')
+    dispatch(connect('TODOtestToken'))
+    navigate('/user/1')
   }
 
   return <Layout logIn={true}>

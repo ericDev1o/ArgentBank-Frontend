@@ -1,24 +1,22 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { State } from './types'
+import { configureStore, createReducer } from '@reduxjs/toolkit'
+
+import { Action, State } from './types'
+import { connect, CONNECT, disconnect, DISCONNECT } from './actions'
 
 const initialState: State = {
     token: null
 }
 
-type Action = 
-| {type:'CONNECT', payload: string}
-| {type:'DISCONNECT'}
-
-const reducer = (currentState:State = initialState, action: Action): State => {
-    switch (action.type) {
-        case 'CONNECT':
+const reducer = createReducer(
+    initialState, 
+    function(builder){
+        builder.addCase(connect, (currentState, action) => {
             return {...currentState, token: action.payload}
-        case 'DISCONNECT':
+        }),
+        builder.addCase(disconnect, (currentState) => {
             return {...currentState, token: null}
-        default:
-            return currentState
-    }
-}
+        })
+    })
 
 export const argentBankStore = configureStore({
     preloadedState: initialState,
