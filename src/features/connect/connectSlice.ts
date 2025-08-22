@@ -6,19 +6,9 @@ const URL = 'http://localhost:3001/api/v1/user/login'
 export const connectThunk = createAsyncThunk<any, AuthFormReqPayload>(
     'login/connectThunk',
     async ({email, password}, thunkApi) => {
-        /**
-         * Secrets are 
-         *     1. test-only
-         *     2. visible in the final bundle and therefore in the browser inspector
-         *         a. in dev tools
-         *             i. Sources tab connectSlice.ts file
-         * To do: please ask backend team to keep them:
-         *     1. safe for example encrypted in the database
-         *     2. as a single source of truth 
-         */
         const LOGIN_BODY = {
-            "email": email, //import.meta.env.VITE_LOGIN_EMAIL_TONY,
-            "password": password //import.meta.env.VITE_LOGIN_PASSWORD_TONY
+            "email": email,
+            "password": password
         }
         const response = await fetch(
             URL, 
