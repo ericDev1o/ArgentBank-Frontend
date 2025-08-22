@@ -1,0 +1,11 @@
+.errorColor {
+    color: red;
+}
+
+.formInputError { 
+    font-size: 0.8em 
+}
+
+.serverError {
+    margin-bottom: 10px;
+}

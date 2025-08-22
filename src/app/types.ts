@@ -5,3 +5,8 @@ export type State = {
 }
 
 export type AppDispatch = typeof argentBankStore.dispatch
+
+export type AuthFormReqPayload = {
+    email: string,
+    password: string
+}

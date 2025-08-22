@@ -1,25 +1,25 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { AuthFormReqPayload } from '../../app/types'
 
 const URL = 'http://localhost:3001/api/v1/user/login'
 
-/**
- * Secrets are 
- *     1. test-only
- *     2. visible in the final bundle and therefore in the browser inspector
- *         a. in dev tools
- *             i. Sources tab connectSlice.ts file
- * To do: please ask backend team to keep them:
- *     1. safe for example encrypted in the database
- *     2. as a single source of truth 
- */
-const LOGIN_BODY = {
-    "email": import.meta.env.VITE_LOGIN_EMAIL_TONY,
-    "password": import.meta.env.VITE_LOGIN_PASSWORD_TONY
-}
-
-export const connectThunk = createAsyncThunk(
-    'login/connectThunk', 
-    async (_, thunkApi) => {
+export const connectThunk = createAsyncThunk<any, AuthFormReqPayload>(
+    'login/connectThunk',
+    async ({email, password}, thunkApi) => {
+        /**
+         * Secrets are 
+         *     1. test-only
+         *     2. visible in the final bundle and therefore in the browser inspector
+         *         a. in dev tools
+         *             i. Sources tab connectSlice.ts file
+         * To do: please ask backend team to keep them:
+         *     1. safe for example encrypted in the database
+         *     2. as a single source of truth 
+         */
+        const LOGIN_BODY = {
+            "email": email, //import.meta.env.VITE_LOGIN_EMAIL_TONY,
+            "password": password //import.meta.env.VITE_LOGIN_PASSWORD_TONY
+        }
         const response = await fetch(
             URL, 
             {
@@ -32,7 +32,7 @@ export const connectThunk = createAsyncThunk(
         )
 
         if(response.ok){
-            const data = await response.json();
+            const data = await response.json()
             return data?.body?.token
         }
         else return thunkApi.rejectWithValue('Connection error')
