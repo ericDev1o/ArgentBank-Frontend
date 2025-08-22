@@ -25,14 +25,14 @@ jest.mock('../../../features/connect/connectSlice.ts', () => ({
   connectThunk: jest.fn(() => () => Promise.resolve()),
 }))
 
-describe('LoginForm', () => {
+describe('When LoginForm is displayed', () => {
   let store: MockStoreEnhanced<unknown, {}> | Store<unknown, UnknownAction, unknown>
 
   beforeEach(() => {
     store = mockStore({})
   })
 
-  it('must render inputs and button', () => {
+  it('then it must render inputs and button', () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
@@ -46,7 +46,7 @@ describe('LoginForm', () => {
     expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument()
   })
 
-  it('must show validation errors when submitting empty form', async () => {
+  it('then it must show validation errors when submitting empty form', async () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
@@ -61,7 +61,7 @@ describe('LoginForm', () => {
     expect(screen.getByText(/password is required/i)).toBeInTheDocument()
   })
 
-  it('must dispatch connectThunk and navigate on valid submit', async () => {
+  it('then it must dispatch connectThunk and navigate on valid submit', async () => {
     const { connectThunk } = require('../../../features/connect/connectSlice.ts')
     connectThunk.mockImplementation(() => () => Promise.resolve())
 
@@ -75,7 +75,6 @@ describe('LoginForm', () => {
 
     fireEvent.change(screen.getByLabelText(/username/i), { target: { value: 'user@example.com' } })
     fireEvent.change(screen.getByLabelText(/password/i), { target: { value: 'password123' } })
-
     fireEvent.click(screen.getByRole('button', { name: /sign in/i }))
 
     await waitFor(() => {

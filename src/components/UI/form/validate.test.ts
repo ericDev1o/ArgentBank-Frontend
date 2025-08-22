@@ -1,20 +1,23 @@
 import { validate } from './validate'
 
-describe('validate', () => {
-  it('must return errors when fields are empty', () => {
+describe('When form fields are validated', () => {
+  it('then it must return errors when fields are empty', () => {
     const result = validate({ email: '', password: '' })
+
     expect(result.email).toBe('Email is required')
     expect(result.password).toBe('Password is required')
   })
 
-  it('must return error for invalid email format', () => {
+  it('then it must return an error for invalid an email format', () => {
     const result = validate({ email: 'invalid-email', password: '123456' })
+
     expect(result.email).toBe('Email is invalid')
     expect(result.password).toBeUndefined()
   })
 
-  it('should not return errors for valid inputs', () => {
+  it('then it should not display any error for valid inputs', () => {
     const result = validate({ email: 'user@example.com', password: 'Passw0rd!' })
+
     expect(result).toEqual({})
   })
 })

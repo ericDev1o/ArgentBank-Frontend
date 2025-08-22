@@ -1,0 +1,94 @@
+{
+  "results": {
+    "tool": {
+      "name": "jest"
+    },
+    "summary": {
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "pending": 0,
+      "skipped": 0,
+      "other": 0,
+      "start": 1755872013385,
+      "stop": 1755872016740
+    },
+    "tests": [
+      {
+        "name": "When form fileds are validated then it must return errors when fields are empty",
+        "duration": 9,
+        "status": "passed",
+        "rawStatus": "passed",
+        "type": "unit",
+        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/validate.test.ts",
+        "retries": 0,
+        "flaky": false,
+        "suite": "validate.test.ts > When form fileds are validated"
+      },
+      {
+        "name": "When form fileds are validated then it must return error for invalid email format",
+        "duration": 2,
+        "status": "passed",
+        "rawStatus": "passed",
+        "type": "unit",
+        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/validate.test.ts",
+        "retries": 0,
+        "flaky": false,
+        "suite": "validate.test.ts > When form fileds are validated"
+      },
+      {
+        "name": "When form fileds are validated then it should not display any error for valid inputs",
+        "duration": 2,
+        "status": "passed",
+        "rawStatus": "passed",
+        "type": "unit",
+        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/validate.test.ts",
+        "retries": 0,
+        "flaky": false,
+        "suite": "validate.test.ts > When form fileds are validated"
+      },
+      {
+        "name": "When LoginForm is displayed then it must render inputs and button",
+        "duration": 194,
+        "status": "passed",
+        "rawStatus": "passed",
+        "type": "unit",
+        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/LoginForm.test.tsx",
+        "retries": 0,
+        "flaky": false,
+        "suite": "LoginForm.test.tsx > When LoginForm is displayed"
+      },
+      {
+        "name": "When LoginForm is displayed then it must show validation errors when submitting empty form",
+        "duration": 46,
+        "status": "passed",
+        "rawStatus": "passed",
+        "type": "unit",
+        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/LoginForm.test.tsx",
+        "retries": 0,
+        "flaky": false,
+        "suite": "LoginForm.test.tsx > When LoginForm is displayed"
+      },
+      {
+        "name": "When LoginForm is displayed then it must dispatch connectThunk and navigate on valid submit",
+        "duration": 37,
+        "status": "passed",
+        "rawStatus": "passed",
+        "type": "unit",
+        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/LoginForm.test.tsx",
+        "retries": 0,
+        "flaky": false,
+        "suite": "LoginForm.test.tsx > When LoginForm is displayed"
+      }
+    ],
+    "environment": {
+      "appName": "argentbank_frontend",
+      "appVersion": "0.1.0",
+      "osPlatform": "linux",
+      "osRelease": "ubuntu_plucky_puffin",
+      "osVersion": "25.04",
+      "buildName": "kernel",
+      "buildNumber": "6.14"
+    }
+  }
+}
