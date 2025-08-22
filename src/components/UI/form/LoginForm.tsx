@@ -46,7 +46,7 @@ const InputField = (
  *     3. user errors handling: invalid typing or connection fails cases to enhance UX.
  * @returns a reusable form component
  */
-const LoginForm = () => {
+export default function LoginForm(){
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
@@ -73,9 +73,20 @@ const LoginForm = () => {
       await dispatch(connectThunk(formData)).unwrap();
       navigate('/user/1');
     } catch (error) {
-      setServerError('Login failed. Please check your credentials.');
+        const msg = 'Login failed: '
+        
+        switch (error) {
+          case 'Error: User not found!':
+            setServerError(error)
+            break
+          case 'Connection error':
+            setServerError(msg + 'unknown connection error')
+            break
+          default:
+            setServerError(msg + 'internal server error')
+        }
+      }
     }
-  };
 
   return (
     <form onSubmit={handleSubmit} noValidate>
@@ -105,6 +116,4 @@ const LoginForm = () => {
       </button>
     </form>
   );
-};
-
-export default LoginForm;
+}

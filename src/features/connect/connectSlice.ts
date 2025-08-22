@@ -35,6 +35,14 @@ export const connectThunk = createAsyncThunk<any, AuthFormReqPayload>(
             const data = await response.json()
             return data?.body?.token
         }
+        else if(response.status == 400) {
+            const credError = await response.json()
+            return thunkApi.rejectWithValue(credError?.message)
+        }
+        else if(response.status == 500) {
+            const servError = await response.json()
+            return thunkApi.rejectWithValue(servError?.message)
+        }
         else return thunkApi.rejectWithValue('Connection error')
     }
 )
