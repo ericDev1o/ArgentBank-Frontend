@@ -37,9 +37,7 @@ export const getProfileSlice = createSlice({
         email: '',
         firstName: '',
         lastName: '',
-        userName: '',
-        createdAt: null,
-        updatedAt: null
+        userName: ''
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -48,18 +46,14 @@ export const getProfileSlice = createSlice({
             state.email = action.payload.email,
             state.firstName = action.payload.firstName,
             state.lastName = action.payload.lastName,
-            state.userName = action.payload.userName,
-            state.createdAt = action.payload.createdAt,
-            state.updatedAt = action.payload.updatedAt
+            state.userName = action.payload.userName
         }),
         builder.addCase(getProfileThunk.rejected, (state) => {
             state.id = '',
             state.email = '',
             state.firstName = '',
             state.lastName = '',
-            state.userName = '',
-            state.createdAt = null,
-            state.updatedAt = null
+            state.userName = ''
         })
     },
 })

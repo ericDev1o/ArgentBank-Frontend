@@ -1,21 +1,52 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Layout from "../components/containers/Layout";
 import SignIn from './SignIn';
-import { getToken } from '../app/selectors';
+import { getFirstName, getLastName, getToken } from '../app/selectors';
+import { AppDispatch } from '../app/types';
+import { getProfileThunk } from '../features/getProfile/getProfileSlice';
 
 export default function User() {
   const token = getToken()
+  const firstName = getFirstName()
+  const lastName = getLastName()
+
+  const dispatch = useDispatch<AppDispatch>()
+
+  const [serverError, setServerError] = useState<string | null>(null);
+
+  const handleGetProfile = async () => {
+    try {
+      await dispatch(getProfileThunk(token)).unwrap()
+    } 
+    catch(error) {
+      const msg = 'Profile retrieval failed: '
+        
+      switch (error) {
+        case 'Error: User not found!':
+          setServerError(error)
+          break
+        case 'Connection error':
+          setServerError(msg + 'unknown connection error')
+          break
+        default:
+          setServerError(msg + 'internal server error')
+      }
+    }
+  }
 
   useEffect(() => {
     console.log('Token updated:', token)
   }, [token])
 
-  if(token)
+  if(token) {
+    handleGetProfile()
+
     return <Layout logIn={false}>
       <main className="main bg-dark main-bg-user">
         <section className="user-welcome">
-          <h2 className="user-welcome-title">Welcome back<br/>Tony Jarvis!</h2>
+          <h2 className="user-welcome-title">Welcome back<br/>{firstName} {lastName}</h2>
           <button className="edit-button">Edit Name</button>
         </section>
         <h2 className="sr-only">Accounts</h2>
@@ -51,5 +82,6 @@ export default function User() {
         </section>
       </main>
     </Layout>
+  }
   else return <SignIn />
 }
