@@ -5,11 +5,11 @@ export type State = {
         token: string | null
     },
     profile: {
-        id: string | null,
-        email: string | null,
+        /*id: string | null,
+        email: string | null,*/
         firstName: string | null,
-        lastName: string | null,
-        userName: string | null
+        lastName: string | null/*,
+        userName: string | null*/
     }
 }
 

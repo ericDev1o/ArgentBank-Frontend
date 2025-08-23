@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+
 import { AuthFormReqPayload } from '../../app/types'
+import fetchThunkResp from '../../helpers/fetchHelper'
 
 const URL = 'http://localhost:3001/api/v1/user/login'
 
@@ -20,20 +22,7 @@ export const connectThunk = createAsyncThunk<any, AuthFormReqPayload>(
                 body: JSON.stringify(LOGIN_BODY)
             }
         )
-
-        if(response.ok){
-            const data = await response.json()
-            return data?.body?.token
-        }
-        else if(response.status == 400) {
-            const credError = await response.json()
-            return thunkApi.rejectWithValue(credError?.message)
-        }
-        else if(response.status == 500) {
-            const servError = await response.json()
-            return thunkApi.rejectWithValue(servError?.message)
-        }
-        else return thunkApi.rejectWithValue('Connection error')
+        return fetchThunkResp(response, 'connect', thunkApi)
     }
 )
 

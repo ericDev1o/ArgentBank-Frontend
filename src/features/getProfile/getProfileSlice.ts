@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
+import fetchThunkResp from '../../helpers/fetchHelper'
+
 const URL = 'http://localhost:3001/api/v1/user/profile'
 
 export const getProfileThunk = createAsyncThunk<any, string | null>(
@@ -11,49 +13,37 @@ export const getProfileThunk = createAsyncThunk<any, string | null>(
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 }
-            }
-        )
-
-        if(response.ok){
-            const data = await response.json()
-            return data?.body
-        }
-        else if(response.status == 400) {
-            const credError = await response.json()
-            return thunkApi.rejectWithValue(credError?.message)
-        }
-        else if(response.status == 500) {
-            const servError = await response.json()
-            return thunkApi.rejectWithValue(servError?.message)
-        }
-        else return thunkApi.rejectWithValue('Connection error')
+            })
+        return fetchThunkResp(response, 'profile', thunkApi)
     }
 )
+
+
 
 export const getProfileSlice = createSlice({
     name: 'profile',
     initialState: {
-        id: '',
-        email: '',
+        /*id: '',
+        email: '',*/
         firstName: '',
-        lastName: '',
-        userName: ''
+        lastName: ''/*,
+        userName: ''*/
     },
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getProfileThunk.fulfilled, (state, action) => {
-            state.id = action.payload.id,
-            state.email = action.payload.email,
+            /*state.id = action.payload.id,
+            state.email = action.payload.email,*/
             state.firstName = action.payload.firstName,
-            state.lastName = action.payload.lastName,
-            state.userName = action.payload.userName
+            state.lastName = action.payload.lastName/*,
+            state.userName = action.payload.userName*/
         }),
         builder.addCase(getProfileThunk.rejected, (state) => {
-            state.id = '',
-            state.email = '',
+            /*state.id = '',
+            state.email = '',*/
             state.firstName = '',
-            state.lastName = '',
-            state.userName = ''
+            state.lastName = ''/*,
+            state.userName = ''*/
         })
     },
 })
