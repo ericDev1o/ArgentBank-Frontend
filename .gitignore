@@ -16,6 +16,7 @@ dist-ssr
 yarn.lock
 .pnp.*
 *.config.*
+.env
 
 # Editor directories and files
 .vscode/*

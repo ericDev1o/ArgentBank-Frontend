@@ -71,6 +71,7 @@ body {
 .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;
+  cursor: pointer
 }
 
 .main-nav-item-user {
@@ -283,6 +284,7 @@ body {
   color: #fff;
   font-weight: bold;
   padding: 10px;
+  cursor: pointer
 }
 
 .user-welcome {
