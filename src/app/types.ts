@@ -5,11 +5,9 @@ export type State = {
         token: string | null
     },
     profile: {
-        /*id: string | null,
-        email: string | null,*/
         firstName: string | null,
-        lastName: string | null/*,
-        userName: string | null*/
+        lastName: string | null,
+        userName: string | null
     }
 }
 
@@ -18,4 +16,13 @@ export type AppDispatch = typeof argentBankStore.dispatch
 export type AuthFormReqPayload = {
     email: string,
     password: string
+}
+
+export type UserFormPayload = {
+    userName: string | null
+}
+
+export type UserPayload = {
+    userName: string | null,
+    token: string | null
 }

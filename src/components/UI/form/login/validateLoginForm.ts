@@ -1,4 +1,4 @@
-import { AuthFormReqPayload } from '../../../app/types'
+import { AuthFormReqPayload } from '../../../../app/types'
 
 export const validate = (data: AuthFormReqPayload): Partial<AuthFormReqPayload> => {
     const errors: Partial<AuthFormReqPayload> = {}

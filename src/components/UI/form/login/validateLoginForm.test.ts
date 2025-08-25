@@ -1,4 +1,4 @@
-import { validate } from './validate'
+import { validate } from './validateLoginForm'
 
 describe('When form fields are validated', () => {
   it('then it must return errors when fields are empty', () => {

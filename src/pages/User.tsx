@@ -5,7 +5,11 @@ import Layout from "../components/containers/Layout";
 import SignIn from './SignIn';
 import { getFirstName, getLastName, getToken } from '../app/selectors';
 import { AppDispatch } from '../app/types';
-import { getProfileThunk } from '../features/getProfile/getProfileSlice';
+import { getProfileThunk } from '../features/profile/profileSlice';
+import UserForm from '../components/UI/form/username/UserForm'
+
+import styles from '../css/components/UI/form/form.module.css'
+import thunkError_helper from '../helpers/thunkErrorHelper';
 
 export default function User() {
   const token = getToken()
@@ -15,6 +19,18 @@ export default function User() {
   const dispatch = useDispatch<AppDispatch>()
 
   const [serverError, setServerError] = useState<string | null>(null);
+  const [editUserName, setEditUserName] = useState(false)
+
+  const handleEditUsername = () => {
+    setEditUserName(true)
+  }
+
+  /**
+   * Displays the user-welcome section instead of the userForm section.
+   */
+  const hideEditUserName = () => {
+    setEditUserName(false)
+  }
 
   const handleGetProfile = async () => {
     try {
@@ -22,33 +38,28 @@ export default function User() {
     } 
     catch(error) {
       const msg = 'Profile retrieval failed: '
-        
-      switch (error) {
-        case 'Error: User not found!':
-          setServerError(error)
-          break
-        case 'Connection error':
-          setServerError(msg + 'unknown connection error')
-          break
-        default:
-          setServerError(msg + 'internal server error')
-      }
+      thunkError_helper(error, setServerError, msg)
     }
   }
 
   useEffect(() => {
-    console.log('Token updated:', token)
-  }, [token])
+    handleGetProfile()
+  }, [])
 
   if(token) {
-    handleGetProfile()
-
     return <Layout logIn={false}>
       <main className="main bg-dark main-bg-user">
+        { editUserName === false ? 
         <section className="user-welcome">
           <h2 className="user-welcome-title">Welcome back<br/>{firstName} {lastName}</h2>
-          <button className="edit-button">Edit Name</button>
+          <button className="edit-button" onClick={handleEditUsername}>Edit Name</button>
         </section>
+        : 
+         <section className={`sign-in-content ${styles.userForm}`}>
+          <h2 className='user-welcome-title'>Edit user info</h2>
+          <UserForm hideEdit={hideEditUserName}/>
+        </section>
+        }
         <h2 className="sr-only">Accounts</h2>
         <section className="account">
           <div className="account-content-wrapper">

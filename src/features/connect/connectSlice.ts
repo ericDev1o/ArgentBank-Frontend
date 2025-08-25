@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import { AuthFormReqPayload } from '../../app/types'
-import fetchThunkResp from '../../helpers/fetchHelper'
+import fetchThunkResponse_helper from '../../helpers/fetchHelper'
 
 const URL = 'http://localhost:3001/api/v1/user/login'
 
@@ -22,7 +22,7 @@ export const connectThunk = createAsyncThunk<any, AuthFormReqPayload>(
                 body: JSON.stringify(LOGIN_BODY)
             }
         )
-        return fetchThunkResp(response, 'connect', thunkApi)
+        return fetchThunkResponse_helper(response, 'connect', thunkApi)
     }
 )
 

@@ -2,42 +2,13 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import { AppDispatch, AuthFormReqPayload } from '../../../app/types';
-import { connectThunk } from '../../../features/connect/connectSlice';
-import { validate } from './validate';
+import { AppDispatch, AuthFormReqPayload } from '../../../../app/types';
+import { connectThunk } from '../../../../features/connect/connectSlice';
+import { validate } from './validateLoginForm';
+import { InputField } from '../InputField';
 
-import styles from './LoginForm.module.css'
-
-const InputField = (
-    { 
-        label, 
-        type, 
-        value, 
-        onChange, 
-        error, 
-        id 
-    }
-) => (
-  <div className='input-wrapper'>
-    <label htmlFor={id}>{label}</label>
-    <input
-      id={id}
-      type={type}
-      value={value}
-      onChange={e => onChange(e.target.value)}
-      aria-invalid={!!error}
-      aria-describedby={error ? `${id}-error` : undefined}
-    />
-    {error && (
-      <span 
-        id={`${id}-error`}
-        className={`${styles.errorColor} ${styles.formInputError}`}
-        >
-        {error}
-      </span>
-    )}
-  </div>
-);
+import styles from '../../../../css/components/UI/form/form.module.css'
+import thunkError_helper from '../../../../helpers/thunkErrorHelper';
 
 /**
  * This component simplifies
@@ -74,17 +45,7 @@ export default function LoginForm(){
       navigate('/user/1');
     } catch (error) {
         const msg = 'Login failed: '
-        
-        switch (error) {
-          case 'Error: User not found!':
-            setServerError(error)
-            break
-          case 'Connection error':
-            setServerError(msg + 'unknown connection error')
-            break
-          default:
-            setServerError(msg + 'internal server error')
-        }
+        thunkError_helper(error, setServerError, msg)
       }
     }
 
@@ -101,6 +62,7 @@ export default function LoginForm(){
         type='email'
         value={formData.email}
         onChange={(value: string) => handleChange('email', value)}
+        disabled={false}
         error={errors.email}
       />
       <InputField
@@ -109,6 +71,7 @@ export default function LoginForm(){
         type='password'
         value={formData.password}
         onChange={(value: string) => handleChange('password', value)}
+        disabled={false}
         error={errors.password}
       />
       <button type='submit' className='sign-in-button'>

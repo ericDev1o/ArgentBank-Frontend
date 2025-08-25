@@ -284,6 +284,7 @@ body {
   color: #fff;
   font-weight: bold;
   padding: 10px;
+  cursor: pointer
 }
 
 .user-welcome {

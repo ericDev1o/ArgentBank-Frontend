@@ -7,7 +7,7 @@ type ThunkApi = {
  * @param slice connect or profile
  * @param thunkApi 
  */
-export default async function fetchThunkResp(
+export default async function fetchThunkResponse_helper(
     response: Response,
     slice: string,
     thunkApi: ThunkApi

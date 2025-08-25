@@ -3,12 +3,12 @@ import { persistReducer, persistStore } from 'redux-persist'
 import { PersistPartial } from 'redux-persist/lib/persistReducer'
 
 import { connectSlice } from '../features/connect/connectSlice'
-import { getProfileSlice } from '../features/getProfile/getProfileSlice'
+import { profileSlice } from '../features/profile/profileSlice'
 import persistConfig from './persistConfig'
 
 const rootReducer = combineReducers({
     connect: connectSlice.reducer,
-    profile: getProfileSlice.reducer
+    profile: profileSlice.reducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>

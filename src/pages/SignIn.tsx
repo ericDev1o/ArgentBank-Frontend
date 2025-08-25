@@ -1,5 +1,5 @@
 import Layout from '../components/containers/Layout'
-import LoginForm from '../components/UI/form/LoginForm'
+import LoginForm from '../components/UI/form/login/LoginForm'
 
 export default function SignIn() {
   return <Layout logIn={true}>
