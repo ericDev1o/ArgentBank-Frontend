@@ -1,12 +1,21 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { persistReducer, persistStore } from 'redux-persist'
+import { 
+  persistReducer, 
+  persistStore,
+  REGISTER,
+  FLUSH,
+  PURGE,
+  PERSIST,
+  PAUSE,
+  REHYDRATE
+} from 'redux-persist'
 import { PersistPartial } from 'redux-persist/lib/persistReducer'
 
 import { connectSlice } from '../features/connect/connectSlice'
 import { profileSlice } from '../features/profile/profileSlice'
 import persistConfig from './persistConfig'
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     connect: connectSlice.reducer,
     profile: profileSlice.reducer
 })
@@ -22,7 +31,14 @@ const persistedReducer = persistReducer(persistConfig, rootReducer) as (
 ) => PersistedState;
 
 export const argentBankStore = configureStore({ 
-    reducer: persistedReducer
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) => {
+      return getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [REGISTER, FLUSH, PURGE, PERSIST, PAUSE, REHYDRATE]
+        }
+      })
+    }
 })
 
 export const persistor = persistStore(argentBankStore)

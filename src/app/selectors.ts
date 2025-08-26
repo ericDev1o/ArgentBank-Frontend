@@ -1,19 +1,19 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { State } from "./types";
+import { RootState } from './store';
 
 export function getToken() {
-    return useSelector((state: State) => state?.connect?.token)
+    return useSelector((state: RootState) => state?.connect?.token)
 }
 
 export function getFirstName() {
-    return useSelector((state: State) => state?.profile?.firstName)
+    return useSelector((state: RootState) => state?.profile?.firstName)
 }
 
 export function getLastName() {
-    return useSelector((state: State) => state?.profile?.lastName)
+    return useSelector((state: RootState) => state?.profile?.lastName)
 }
 
 export function getUserName() {
-    return useSelector((state: State) => state?.profile?.userName)
+    return useSelector((state: RootState) => state?.profile?.userName)
 }

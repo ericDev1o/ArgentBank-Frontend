@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "test-utils": ["<rootDir>/test/app"]
+    },
     "target": "es6",                          
     "lib": ["dom", "dom.iterable", "esnext"], 
     "allowJs": false,                         

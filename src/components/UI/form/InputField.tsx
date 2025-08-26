@@ -2,19 +2,21 @@ import styles from '../../../css/components/UI/form/form.module.css'
 
 export const InputField = (
     { 
+        id,
+        name,
         label, 
         type, 
         value, 
         onChange,
         disabled,
-        error, 
-        id 
+        error         
     }
 ) => (
   <div className='input-wrapper'>
     <label htmlFor={id}>{label}</label>
     <input
       id={id}
+      name={name}
       type={type}
       value={value}
       onChange={e => onChange(e.target.value)}

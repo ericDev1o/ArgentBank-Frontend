@@ -1,15 +1,4 @@
-import { argentBankStore } from "./store"
-
-export type State = {
-    connect: {
-        token: string | null
-    },
-    profile: {
-        firstName: string | null,
-        lastName: string | null,
-        userName: string | null
-    }
-}
+import { argentBankStore } from './store'
 
 export type AppDispatch = typeof argentBankStore.dispatch
 

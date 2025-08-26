@@ -58,6 +58,7 @@ export default function LoginForm(){
       )}
       <InputField
         id='username'
+        name='userName'
         label='Username'
         type='email'
         value={formData.email}
@@ -67,6 +68,7 @@ export default function LoginForm(){
       />
       <InputField
         id='password'
+        name='password'
         label='Password'
         type='password'
         value={formData.password}

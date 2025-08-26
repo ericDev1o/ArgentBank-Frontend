@@ -1,73 +1,71 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import LoginForm from '../login/LoginForm'
-import { Provider } from 'react-redux'
+import { screen, waitFor } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import { Store, UnknownAction } from '@reduxjs/toolkit'
 
-import configureStore, { MockStoreEnhanced } from 'redux-mock-store'
+import LoginForm from '../login/LoginForm'
 
-const mockStore = configureStore([])
+jest.mock('@/features/connect/connectSlice', () => {
+  const actualModule = jest.requireActual('@/features/connect/connectSlice')
+  return {
+    ...actualModule,
+    connectThunk: jest.fn(() => () => Promise.resolve())
+  }
+})
 
-jest.mock('../../../../features/connect/connectSlice.ts', () => ({
-  connectThunk: jest.fn(() => () => Promise.resolve()),
-}))
+import { connectThunk } from '@/features/connect/connectSlice'
+import { renderWithProviders } from 'test-utils'
+import { configureStore, UnknownAction } from '@reduxjs/toolkit'
+import { rootReducer } from '@/app/store'
+import userEvent from '@testing-library/user-event'
 
 describe('When LoginForm is displayed', () => {
-  let store: MockStoreEnhanced<unknown, {}> | Store<unknown, UnknownAction, unknown>
+  type connectThunkType = typeof connectThunk
+  const mockedConnectThunk = connectThunk as jest.MockedFunction<connectThunkType>
+  const mockStore = configureStore({
+    reducer: rootReducer,
+    preloadedState: {
+      profile: {
+        userName: '',
+        firstName: '',
+        lastName: ''
+      }
+    }
+  })
 
+  let dispatchSpy: jest.SpyInstance<UnknownAction, [action: UnknownAction, ...extraArgs: any[]], any>;
   beforeEach(() => {
-    store = mockStore({})
+    mockedConnectThunk.mockClear()
+
+    dispatchSpy = jest.spyOn(mockStore, 'dispatch');
+
+    renderWithProviders(
+      <BrowserRouter>
+        <LoginForm />
+      </BrowserRouter>
+    , { store: mockStore })
   })
 
   it('then it must render inputs and button', () => {
-    render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <LoginForm />
-        </BrowserRouter>
-      </Provider>
-    )
-
     expect(screen.getByLabelText(/username/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/password/i)).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument()
   })
 
   it('then it must show validation errors when submitting empty form', async () => {
-    render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <LoginForm />
-        </BrowserRouter>
-      </Provider>
-    )
+    await userEvent.click(screen.getByRole('button', { name: /sign in/i }))
 
-    fireEvent.click(screen.getByRole('button', { name: /sign in/i }))
-
-    expect(await screen.findByText(/email is required/i)).toBeInTheDocument()
-    expect(screen.getByText(/password is required/i)).toBeInTheDocument()
+    expect(await screen.getByText(/email is required/i)).toBeInTheDocument()
+    expect(await screen.getByText(/password is required/i)).toBeInTheDocument()
   })
 
-  it('then it must dispatch connectThunk and navigate on valid submit', async () => {
-    const { connectThunk } = require('../../../../features/connect/connectSlice.ts')
-    connectThunk.mockImplementation(() => () => Promise.resolve())
-
-    render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <LoginForm />
-        </BrowserRouter>
-      </Provider>
-    )
-
-    fireEvent.change(screen.getByLabelText(/username/i), { target: { value: 'user@example.com' } })
-    fireEvent.change(screen.getByLabelText(/password/i), { target: { value: 'password123' } })
-    fireEvent.click(screen.getByRole('button', { name: /sign in/i }))
+  it('then it must dispatch connectThunk on valid submit', async () => {
+    await userEvent.type(screen.getByLabelText(/username/i), 'user@example.com')
+    await userEvent.type(screen.getByLabelText(/password/i), 'passwordTest')
+    await userEvent.click(screen.getByRole('button', { name: /sign in/i }))
 
     await waitFor(() => {
-      expect(connectThunk).toHaveBeenCalledWith({
+      expect(mockedConnectThunk).toHaveBeenCalledWith({
         email: 'user@example.com',
-        password: 'password123',
+        password: 'passwordTest',
       })
     })
   })

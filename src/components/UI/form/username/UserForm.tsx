@@ -66,6 +66,7 @@ export default function UserForm({hideEdit}: {hideEdit: () => void}){
       )}
       <InputField
         id='username'
+        name='userName'
         label='User name'
         type='text'
         value={formData.userName}
@@ -75,6 +76,7 @@ export default function UserForm({hideEdit}: {hideEdit: () => void}){
       />
       <InputField
         id='firstName'
+        name='firstName'
         label='First name'
         type='text'
         value={firstName}
@@ -84,6 +86,7 @@ export default function UserForm({hideEdit}: {hideEdit: () => void}){
       />
        <InputField
         id='lastName'
+        name='lastName'
         label='Last name'
         type='text'
         value={lastName}
