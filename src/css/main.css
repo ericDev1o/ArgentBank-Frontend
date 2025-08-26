@@ -40,9 +40,8 @@ body {
 
 .sr-only {
   border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
+  clip-path: inset(1px 1px 1px 1px) !important;
+  clip-path: inset(50%) !important;
   height: 1px !important;
   margin: -1px !important;
   overflow: hidden !important;
@@ -127,7 +126,7 @@ body {
   font-size: 0.9rem;
 }
 
-@media (min-width: 920px) {
+@media (width >= 920px) {
   .hero {
     height: 400px;
     background-position: 0% 33%;
@@ -155,7 +154,7 @@ body {
   flex-direction: column;
 }
 
-@media (min-width: 920px) {
+@media (width >= 920px) {
   .features {
     flex-direction: row;
   }
@@ -304,7 +303,7 @@ body {
   color: #fff;
 }
 
-@media (min-width: 720px) {
+@media (width >= 720px) {
   .account {
     flex-direction: row;
   }
