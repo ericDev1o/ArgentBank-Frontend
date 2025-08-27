@@ -21,8 +21,8 @@ export default function HeaderLogout() {
   }
   
   return <div>
-      <a className="main-nav-item main-nav-item-user" href="">
-        <i className="fa fa-user-circle"></i>
+      <a className="main-nav-item main-nav-item-user" >
+        <i className="fa fa-user-circle" aria-hidden="true"></i>
         {userName}
       </a>
       <a className="main-nav-item" onClick={handleSignOut}>
