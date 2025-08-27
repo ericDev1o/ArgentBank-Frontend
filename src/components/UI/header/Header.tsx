@@ -7,7 +7,7 @@ export default function Header({logIn}: {logIn: boolean}) {
             <a className="main-nav-logo" href="/">
                 <img
                 className="main-nav-logo-image"
-                src="/img/argentBankLogo.webp"
+                src="/img/argentBankLogo.avif"
                 alt="Argent Bank Logo"
                 aria-hidden="true"
                 />
