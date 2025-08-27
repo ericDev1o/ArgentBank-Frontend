@@ -188,7 +188,7 @@ body {
   margin-top: 1rem;
   border-color: #00bc77;
   background-color: #00bc77;
-  color: #fff;
+  color: #000;
   cursor: pointer;
 }
 
@@ -280,7 +280,7 @@ body {
 .edit-button {
   border-color: #00bc77;
   background-color: #00bc77;
-  color: #fff;
+  color: #000;
   font-weight: bold;
   padding: 10px;
   cursor: pointer
@@ -300,7 +300,7 @@ body {
   margin-top: 1rem;
   border-color: #00bc77;
   background-color: #00bc77;
-  color: #fff;
+  color: #000;
 }
 
 @media (width >= 720px) {

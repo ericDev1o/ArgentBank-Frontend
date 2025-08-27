@@ -9,6 +9,7 @@ export default function Header({logIn}: {logIn: boolean}) {
                 className="main-nav-logo-image"
                 src="/img/argentBankLogo.webp"
                 alt="Argent Bank Logo"
+                aria-hidden="true"
                 />
                 <h1 className="sr-only">Argent Bank</h1>
             </a>
