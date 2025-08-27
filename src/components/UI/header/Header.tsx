@@ -10,6 +10,8 @@ export default function Header({logIn}: {logIn: boolean}) {
                 src="/img/argentBankLogo.avif"
                 alt="Argent Bank Logo"
                 aria-hidden="true"
+                width="200px"
+                height="54px"
                 />
                 <h1 className="sr-only">Argent Bank</h1>
             </a>

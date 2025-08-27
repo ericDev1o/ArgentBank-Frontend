@@ -20,6 +20,8 @@ export default function Home() {
                 src="/img/icon-chat.avif" 
                 alt="chat icon"
                 className="feature-icon"
+                width="100px"
+                height="100px"
               />
               <h3 className="feature-item-title">You are our #1 priority</h3>
               <p>
@@ -32,6 +34,8 @@ export default function Home() {
                 src="/img/icon-money.avif"
                 alt="money icon"
                 className="feature-icon"
+                width="100px"
+                height="100px"
               />
               <h3 className="feature-item-title">More savings means higher rates</h3>
               <p>
@@ -43,6 +47,8 @@ export default function Home() {
                 src="/img/icon-security.avif"
                 alt="security icon"
                 className="feature-icon"
+                width="100px"
+                height="100px"
               />
               <h3 className="feature-item-title">Security you can trust</h3>
               <p>
