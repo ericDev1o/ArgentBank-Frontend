@@ -17,9 +17,11 @@ export default function Home() {
             <h2 className="sr-only">Features</h2>
             <div className="feature-item">
               <img 
-                src="/img/icon-chat.webp" 
+                src="/img/icon-chat.avif" 
                 alt="chat icon"
                 className="feature-icon"
+                width="100px"
+                height="100px"
               />
               <h3 className="feature-item-title">You are our #1 priority</h3>
               <p>
@@ -29,9 +31,11 @@ export default function Home() {
             </div>
             <div className="feature-item">
               <img
-                src="/img/icon-money.webp"
+                src="/img/icon-money.avif"
                 alt="money icon"
                 className="feature-icon"
+                width="100px"
+                height="100px"
               />
               <h3 className="feature-item-title">More savings means higher rates</h3>
               <p>
@@ -40,9 +44,11 @@ export default function Home() {
             </div>
             <div className="feature-item">
               <img
-                src="/img/icon-security.webp"
+                src="/img/icon-security.avif"
                 alt="security icon"
                 className="feature-icon"
+                width="100px"
+                height="100px"
               />
               <h3 className="feature-item-title">Security you can trust</h3>
               <p>

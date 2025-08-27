@@ -1,26 +1,44 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { State } from './types'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { 
+  persistReducer, 
+  persistStore,
+  REGISTER,
+  FLUSH,
+  PURGE,
+  PERSIST,
+  PAUSE,
+  REHYDRATE
+} from 'redux-persist'
+import { PersistPartial } from 'redux-persist/lib/persistReducer'
 
-const initialState: State = {
-    token: null
-}
+import { connectSlice } from '../features/connect/connectSlice'
+import { profileSlice } from '../features/profile/profileSlice'
+import persistConfig from './persistConfig'
 
-type Action = 
-| {type:'CONNECT', payload: string}
-| {type:'DISCONNECT'}
-
-const reducer = (currentState:State = initialState, action: Action): State => {
-    switch (action.type) {
-        case 'CONNECT':
-            return {...currentState, token: action.payload}
-        case 'DISCONNECT':
-            return {...currentState, token: null}
-        default:
-            return currentState
-    }
-}
-
-export const argentBankStore = configureStore({
-    preloadedState: initialState,
-    reducer
+export const rootReducer = combineReducers({
+    connect: connectSlice.reducer,
+    profile: profileSlice.reducer
 })
+
+export type RootState = ReturnType<typeof rootReducer>
+type PersistedState = RootState & PersistPartial
+type ConnectActions = ReturnType<typeof connectSlice.actions[keyof typeof connectSlice.actions]>
+type AppActions = ConnectActions // | ProfileActions
+
+const persistedReducer = persistReducer(persistConfig, rootReducer) as (
+  state: PersistedState | undefined,
+  action: AppActions
+) => PersistedState;
+
+export const argentBankStore = configureStore({ 
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) => {
+      return getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [REGISTER, FLUSH, PURGE, PERSIST, PAUSE, REHYDRATE]
+        }
+      })
+    }
+})
+
+export const persistor = persistStore(argentBankStore)

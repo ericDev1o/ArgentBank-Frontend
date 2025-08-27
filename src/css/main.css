@@ -13,6 +13,10 @@ body {
   min-height: 100vh;
 }
 
+h1 {
+  font-size: 24px;
+}
+
 .main {
   flex: 1;
 }
@@ -40,9 +44,8 @@ body {
 
 .sr-only {
   border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
+  clip-path: inset(1px 1px 1px 1px) !important;
+  clip-path: inset(50%) !important;
   height: 1px !important;
   margin: -1px !important;
   overflow: hidden !important;
@@ -71,6 +74,7 @@ body {
 .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;
+  cursor: pointer
 }
 
 .main-nav-item-user {
@@ -97,7 +101,7 @@ body {
 }
 
 .hero {
-  background-image: url('/img/bank-tree.webp');
+  background-image: url('/img/bank-tree.avif');
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -126,7 +130,7 @@ body {
   font-size: 0.9rem;
 }
 
-@media (min-width: 920px) {
+@media (width >= 920px) {
   .hero {
     height: 400px;
     background-position: 0% 33%;
@@ -154,7 +158,7 @@ body {
   flex-direction: column;
 }
 
-@media (min-width: 920px) {
+@media (width >= 920px) {
   .features {
     flex-direction: row;
   }
@@ -188,7 +192,7 @@ body {
   margin-top: 1rem;
   border-color: #00bc77;
   background-color: #00bc77;
-  color: #fff;
+  color: #000;
   cursor: pointer;
 }
 
@@ -280,9 +284,10 @@ body {
 .edit-button {
   border-color: #00bc77;
   background-color: #00bc77;
-  color: #fff;
+  color: #000;
   font-weight: bold;
   padding: 10px;
+  cursor: pointer
 }
 
 .user-welcome {
@@ -299,10 +304,10 @@ body {
   margin-top: 1rem;
   border-color: #00bc77;
   background-color: #00bc77;
-  color: #fff;
+  color: #000;
 }
 
-@media (min-width: 720px) {
+@media (width >= 720px) {
   .account {
     flex-direction: row;
   }
