@@ -3,12 +3,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import fetchThunkResponse_helper from '../../helpers/fetchHelper'
 import { UserPayload } from '../../app/types'
 
-const URL = 'http://localhost:3001/api/v1/user/profile'
+import { PROFILE_URL } from '@/constants/api'
 
 export const getProfileThunk = createAsyncThunk<any, string | null>(
     'profile/getProfileThunk',
     async (token, thunkApi) => {
-        const response = await fetch(URL,
+        const response = await fetch(PROFILE_URL,
             {
                 headers: {
                     'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ export const putProfileThunk = createAsyncThunk<any, UserPayload>(
         const PUT_PROFILE_BODY = {
             'userName': userName
         }
-        const response = await fetch(URL,
+        const response = await fetch(PROFILE_URL,
             {
                 method: 'PUT',
                 body: JSON.stringify(PUT_PROFILE_BODY),

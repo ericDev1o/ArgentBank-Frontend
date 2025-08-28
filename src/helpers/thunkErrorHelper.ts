@@ -1,4 +1,5 @@
 /**
+ * This function is a cross-form component thunk DRY helper.
  * @param error catched error message from thunk fetch
  * @param setServerError User or UserForm or LoginForm serverError state setter
  * @param msg Component thunk depending message, 

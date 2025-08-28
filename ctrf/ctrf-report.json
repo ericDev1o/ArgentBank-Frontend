@@ -10,13 +10,13 @@
       "pending": 0,
       "skipped": 0,
       "other": 0,
-      "start": 1756228666431,
-      "stop": 1756228671654
+      "start": 1756399071200,
+      "stop": 1756399076346
     },
     "tests": [
       {
         "name": "When form fields are validated then it must return errors when fields are empty",
-        "duration": 9,
+        "duration": 12,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -27,7 +27,7 @@
       },
       {
         "name": "When form fields are validated then it must return an error for invalid an email format",
-        "duration": 2,
+        "duration": 3,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -38,7 +38,7 @@
       },
       {
         "name": "When form fields are validated then it should not display any error for valid inputs",
-        "duration": 4,
+        "duration": 9,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -70,41 +70,8 @@
         "suite": "validateUserForm.test.ts > When form fields are validated"
       },
       {
-        "name": "When LoginForm is displayed then it must render inputs and button",
-        "duration": 212,
-        "status": "passed",
-        "rawStatus": "passed",
-        "type": "unit",
-        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/login/LoginForm.test.tsx",
-        "retries": 0,
-        "flaky": false,
-        "suite": "LoginForm.test.tsx > When LoginForm is displayed"
-      },
-      {
-        "name": "When LoginForm is displayed then it must show validation errors when submitting empty form",
-        "duration": 101,
-        "status": "passed",
-        "rawStatus": "passed",
-        "type": "unit",
-        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/login/LoginForm.test.tsx",
-        "retries": 0,
-        "flaky": false,
-        "suite": "LoginForm.test.tsx > When LoginForm is displayed"
-      },
-      {
-        "name": "When LoginForm is displayed then it must dispatch connectThunk on valid submit",
-        "duration": 365,
-        "status": "passed",
-        "rawStatus": "passed",
-        "type": "unit",
-        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/login/LoginForm.test.tsx",
-        "retries": 0,
-        "flaky": false,
-        "suite": "LoginForm.test.tsx > When LoginForm is displayed"
-      },
-      {
         "name": "When UserForm is displayed then it must render inputs and button",
-        "duration": 248,
+        "duration": 254,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -115,7 +82,7 @@
       },
       {
         "name": "When UserForm is displayed then it must show validation errors when submitting empty form",
-        "duration": 74,
+        "duration": 162,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -126,7 +93,7 @@
       },
       {
         "name": "When UserForm is displayed then it must dispatch putProfileThunk and navigate on valid submit",
-        "duration": 230,
+        "duration": 237,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -134,6 +101,39 @@
         "retries": 0,
         "flaky": false,
         "suite": "UserForm.test.tsx > When UserForm is displayed"
+      },
+      {
+        "name": "When LoginForm is displayed then it must render inputs and button",
+        "duration": 308,
+        "status": "passed",
+        "rawStatus": "passed",
+        "type": "unit",
+        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/login/LoginForm.test.tsx",
+        "retries": 0,
+        "flaky": false,
+        "suite": "LoginForm.test.tsx > When LoginForm is displayed"
+      },
+      {
+        "name": "When LoginForm is displayed then it must show validation errors when submitting empty form",
+        "duration": 98,
+        "status": "passed",
+        "rawStatus": "passed",
+        "type": "unit",
+        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/login/LoginForm.test.tsx",
+        "retries": 0,
+        "flaky": false,
+        "suite": "LoginForm.test.tsx > When LoginForm is displayed"
+      },
+      {
+        "name": "When LoginForm is displayed then it must dispatch connectThunk on valid submit",
+        "duration": 457,
+        "status": "passed",
+        "rawStatus": "passed",
+        "type": "unit",
+        "filePath": "/home/eric/source/repos/OC_ArgentBank/ArgentBank-Frontend/src/components/UI/form/login/LoginForm.test.tsx",
+        "retries": 0,
+        "flaky": false,
+        "suite": "LoginForm.test.tsx > When LoginForm is displayed"
       }
     ],
     "environment": {

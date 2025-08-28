@@ -7,9 +7,9 @@ import { getFirstName, getLastName, getToken } from '../app/selectors';
 import { AppDispatch } from '../app/types';
 import { getProfileThunk } from '../features/profile/profileSlice';
 import UserForm from '../components/UI/form/username/UserForm'
+import thunkError_helper from '../helpers/thunkErrorHelper';
 
 import styles from '../css/components/UI/form/form.module.css'
-import thunkError_helper from '../helpers/thunkErrorHelper';
 
 export default function User() {
   const token = getToken()
