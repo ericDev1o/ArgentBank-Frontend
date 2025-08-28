@@ -2,13 +2,16 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import { AppDispatch, AuthFormReqPayload } from '../../../../app/types';
-import { connectThunk } from '../../../../features/connect/connectSlice';
+/**
+ * See aliases paths in /tsconfig.json
+ */
+import { AppDispatch, AuthFormReqPayload } from '@/app/types';
+import { connectThunk } from '@/features/connect/connectSlice';
 import { validate } from './validateLoginForm';
 import { InputField } from '../InputField';
 
-import styles from '../../../../css/components/UI/form/form.module.css'
-import thunkError_helper from '../../../../helpers/thunkErrorHelper';
+import styles from '@/css/components/UI/form/form.module.css'
+import thunkError_helper from '@/helpers/thunkErrorHelper';
 
 /**
  * This component simplifies

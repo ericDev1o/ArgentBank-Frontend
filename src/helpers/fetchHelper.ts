@@ -1,8 +1,7 @@
-type ThunkApi = {
-  rejectWithValue: (value: any) => any;
-}
+import type { ThunkApi } from "@/app/types"
 
 /**
+ * This function is a cross-slice thunk DRY helper.
  * @param response of awaited fetch
  * @param slice connect or profile
  * @param thunkApi 

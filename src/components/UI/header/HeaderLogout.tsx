@@ -1,18 +1,18 @@
-import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
-import { connectSlice } from "../../../features/connect/connectSlice"
-import { AppDispatch } from "../../../app/types"
-import { getUserName } from "../../../app/selectors"
+/**
+ * See aliases paths in /tsconfig.json
+ */
+import { connectSlice } from '@/features/connect/connectSlice'
+import { AppDispatch } from '@/app/types'
+import { getUserName } from '@/app/selectors'
 
 export default function HeaderLogout() {
   const dispatch = useDispatch<AppDispatch>()
   const navigate = useNavigate()
 
   const userName = getUserName()
-
-  const [serverError, setServerError] = useState<string | null>(null);
 
   const handleSignOut = (e: React.MouseEvent) => {
     e.preventDefault()

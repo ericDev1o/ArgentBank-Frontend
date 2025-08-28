@@ -8,10 +8,8 @@ const rootReducer = combineReducers({
 })
 
 /**
- * To combine with Mock Service Worker or 
- * renderWithProvider store={store}
  * @param preloadedState 
- * @returns 
+ * @returns a store with mocked reducer for speed.
  */
 export const setupStore = (
     preloadedState?: Partial<ReturnType<typeof rootReducer>>

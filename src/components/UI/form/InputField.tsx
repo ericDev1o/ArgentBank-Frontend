@@ -1,4 +1,7 @@
-import styles from '../../../css/components/UI/form/form.module.css'
+/**
+ * See aliases paths in /tsconfig.json
+ */
+import styles from '@/css/components/UI/form/form.module.css'
 
 export const InputField = (
     { 

@@ -15,7 +15,6 @@ dist-ssr
 .yarnrc.yml
 yarn.lock
 .pnp.*
-*.config.*
 .env
 
 # Editor directories and files
