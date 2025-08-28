@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { AuthFormReqPayload } from '../../app/types'
 import fetchThunkResponse_helper from '../../helpers/fetchHelper'
 
-const URL = 'http://localhost:3001/api/v1/user/login'
+import { CONNECT_URL } from '@/constants/api'
 
 export const connectThunk = createAsyncThunk<any, AuthFormReqPayload>(
     'login/connectThunk',
@@ -13,7 +13,7 @@ export const connectThunk = createAsyncThunk<any, AuthFormReqPayload>(
             "password": password
         }
         const response = await fetch(
-            URL, 
+            CONNECT_URL, 
             {
                 method: 'POST',
                 headers: {
@@ -31,14 +31,6 @@ export const connectSlice = createSlice({
     initialState: {
         token: null
     },
-    /**
-     * To do: please ask the backend team 
-     *     1. the token time-to-live before expiration. 
-     *        It is currently stateless and only deleted from the user browser.
-     *     2. if to secure the logout an API route could be planned for server-side
-     *         i. token revocation or 
-     *         ii. session deletion
-     */
     reducers: {
         disconnect: (currentState) => {
             currentState.token = null

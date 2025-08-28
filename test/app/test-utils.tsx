@@ -3,7 +3,7 @@ import { render, RenderOptions } from '@testing-library/react'
 import { Provider } from "react-redux";
 
 import { AppStore, setupStore } from "./setupStore";
-import { RootState } from '../../src/app/store';
+import { RootState } from '../../src/app/types'
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'>
 {

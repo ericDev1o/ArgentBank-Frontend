@@ -3,6 +3,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
+      "@test/*": ["test/*"],
       "test-utils": ["<rootDir>/test/app"]
     },
     "target": "es6",                          

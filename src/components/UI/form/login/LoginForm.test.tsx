@@ -1,7 +1,7 @@
 import { screen, waitFor } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
+import userEvent from '@testing-library/user-event'
 
-import LoginForm from '../login/LoginForm'
+import { beforeAllTests, mockThunk } from '@test/helpers/form/beforeAll'
 
 /**
  * See aliases paths in /tsconfig.json
@@ -15,37 +15,10 @@ jest.mock('@/features/connect/connectSlice', () => {
 })
 
 import { connectThunk } from '@/features/connect/connectSlice'
-import { renderWithProviders } from 'test-utils'
-import { configureStore, UnknownAction } from '@reduxjs/toolkit'
-import { rootReducer } from '@/app/store'
-import userEvent from '@testing-library/user-event'
 
 describe('When LoginForm is displayed', () => {
-  type connectThunkType = typeof connectThunk
-  const mockedConnectThunk = connectThunk as jest.MockedFunction<connectThunkType>
-  const mockStore = configureStore({
-    reducer: rootReducer,
-    preloadedState: {
-      profile: {
-        userName: '',
-        firstName: '',
-        lastName: ''
-      }
-    }
-  })
-
-  let dispatchSpy: jest.SpyInstance<UnknownAction, [action: UnknownAction, ...extraArgs: any[]], any>;
-  beforeEach(() => {
-    mockedConnectThunk.mockClear()
-
-    dispatchSpy = jest.spyOn(mockStore, 'dispatch');
-
-    renderWithProviders(
-      <BrowserRouter>
-        <LoginForm />
-      </BrowserRouter>
-    , { store: mockStore })
-  })
+  const mockedConnectThunk = mockThunk(connectThunk)
+  beforeAllTests('connect', mockedConnectThunk)
 
   it('then it must render inputs and button', () => {
     expect(screen.getByLabelText(/username/i)).toBeInTheDocument()

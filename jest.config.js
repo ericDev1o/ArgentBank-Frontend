@@ -14,7 +14,8 @@ export default {
     '\\.module\\.css$': 'identity-obj-proxy',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     '^test-utils$': '<rootDir>/test/app/test-utils.tsx',
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@test/(.*)$': '<rootDir>/test/$1'
   },
   reporters: [
     'default',

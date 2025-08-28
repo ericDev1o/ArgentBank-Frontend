@@ -10,10 +10,17 @@ export default function ({ mode }: ConfigEnv): UserConfigExport {
     },
     server: {
       port: 8000,
+      proxy: {
+        '/api/v1': {
+          target: 'http://localhost:3001',
+          changeOrigin: true
+        }
+      }
     },
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src')
+        '@': path.resolve(__dirname, './src'),
+        '@test': path.resolve(__dirname, './test')
       },
     },
     css: {
