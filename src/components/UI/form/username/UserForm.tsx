@@ -1,14 +1,22 @@
 import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 
-import { AppDispatch, UserFormPayload, UserPayload } from '../../../../app/types';
-import { putProfileThunk } from '../../../../features/profile/profileSlice';
+/**
+ * See aliases paths in /tsconfig.json
+ */
+import { AppDispatch, UserFormPayload, UserPayload } from '@/app/types';
+import { putProfileThunk } from '@/features/profile/profileSlice';
 import { validate } from '../username/validateUserForm';
 import { InputField } from '../InputField';
-import { getFirstName, getLastName, getToken, getUserName } from '../../../../app/selectors';
-import thunkError_helper from '../../../../helpers/thunkErrorHelper';
+import { 
+  getFirstName, 
+  getLastName, 
+  getToken, 
+  getUserName 
+} from '@/app/selectors';
+import thunkError_helper from '@/helpers/thunkErrorHelper';
 
-import styles from '../../../../css/components/UI/form/form.module.css'
+import styles from '@/css/components/UI/form/form.module.css'
 
 export default function UserForm({hideEdit}: {hideEdit: () => void}){
   const dispatch = useDispatch<AppDispatch>();

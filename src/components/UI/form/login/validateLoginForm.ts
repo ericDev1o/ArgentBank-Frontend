@@ -1,4 +1,7 @@
-import { AuthFormReqPayload } from '../../../../app/types'
+/**
+ * See aliases paths in /tsconfig.json
+ */
+import { AuthFormReqPayload } from '@/app/types'
 
 export const validate = (data: AuthFormReqPayload): Partial<AuthFormReqPayload> => {
     const errors: Partial<AuthFormReqPayload> = {}

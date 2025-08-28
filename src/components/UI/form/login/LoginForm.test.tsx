@@ -3,6 +3,9 @@ import { BrowserRouter } from 'react-router-dom'
 
 import LoginForm from '../login/LoginForm'
 
+/**
+ * See aliases paths in /tsconfig.json
+ */
 jest.mock('@/features/connect/connectSlice', () => {
   const actualModule = jest.requireActual('@/features/connect/connectSlice')
   return {

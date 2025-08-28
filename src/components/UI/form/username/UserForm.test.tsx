@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router-dom'
 
 import UserForm from '../username/UserForm'
 
+/**
+ * See aliases paths in /tsconfig.json
+ */
 jest.mock('@/features/profile/profileSlice', () => {
   const actualModule = jest.requireActual('@/features/profile/profileSlice')
   return {
@@ -12,9 +15,6 @@ jest.mock('@/features/profile/profileSlice', () => {
   }
 })
 
-/**
- * See aliases paths in /tsconfig.json
- */
 import { putProfileThunk } from '@/features/profile/profileSlice'
 import { renderWithProviders } from 'test-utils'
 import { configureStore, UnknownAction } from '@reduxjs/toolkit'
