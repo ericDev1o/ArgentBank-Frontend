@@ -6,12 +6,13 @@ export default function Header({logIn}: {logIn: boolean}) {
          <nav className="main-nav">
             <a className="main-nav-logo" href="/">
                 <img
-                className="main-nav-logo-image"
-                src="/img/argentBankLogo.avif"
-                alt="Argent Bank Logo"
-                aria-hidden="true"
-                width="200px"
-                height="54px"
+                    className="main-nav-logo-image"
+                    src="/img/argentBankLogo.avif"
+                    alt="Argent Bank Logo"
+                    aria-hidden="true"
+                    width="200px"
+                    height="54px"
+                    loading="lazy"
                 />
                 <h1 className="sr-only">Argent Bank</h1>
             </a>
