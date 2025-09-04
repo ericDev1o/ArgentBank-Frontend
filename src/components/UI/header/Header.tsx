@@ -12,6 +12,7 @@ export default function Header({logIn}: {logIn: boolean}) {
                 aria-hidden="true"
                 width="200px"
                 height="54px"
+                loading="lazy"
                 />
                 <h1 className="sr-only">Argent Bank</h1>
             </a>

@@ -21,6 +21,7 @@ export default function Home() {
                 className="feature-icon"
                 width="100px"
                 height="100px"
+                loading="lazy"
               />
               <h3 className="feature-item-title">You are our #1 priority</h3>
               <p>
@@ -35,6 +36,7 @@ export default function Home() {
                 className="feature-icon"
                 width="100px"
                 height="100px"
+                loading="lazy"
               />
               <h3 className="feature-item-title">More savings means higher rates</h3>
               <p>
@@ -48,6 +50,7 @@ export default function Home() {
                 className="feature-icon"
                 width="100px"
                 height="100px"
+                loading="lazy"
               />
               <h3 className="feature-item-title">Security you can trust</h3>
               <p>
