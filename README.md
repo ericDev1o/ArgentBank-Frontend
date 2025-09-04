@@ -8,7 +8,9 @@
 
 ```bash
 # install dependecies
-yarn add
+npm install 
+# or as soon as possible 
+#yarn add
 
 # optionally use late node version among multiple installed
 nvs use 24
