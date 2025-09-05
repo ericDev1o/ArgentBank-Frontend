@@ -8,6 +8,7 @@ import { AppDispatch } from '../app/types';
 import { getProfileThunk } from '../features/profile/profileSlice';
 import UserForm from '../components/UI/form/username/UserForm'
 import thunkError_helper from '../helpers/thunkErrorHelper';
+import Account from '@/components/UI/Account';
 
 import styles from '../css/components/UI/form/form.module.css'
 
@@ -50,46 +51,36 @@ export default function User() {
     return <Layout logIn={false}>
       <main className='main bg-dark main-bg-user'>
         { editUserName === false ? 
-        <section className='user-welcome'>
+        <article className='user-welcome'>
           <h2 className='user-welcome-title'>Welcome back<br/>{firstName} {lastName}</h2>
           <button className='edit-button' onClick={handleEditUsername}>Edit Name</button>
-        </section>
+        </article>
         : 
-         <section className={`sign-in-content ${styles.userForm}`}>
+         <article className={`sign-in-content ${styles.userForm}`}>
           <h2 className='user-welcome-title'>Edit user info</h2>
           <UserForm hideEdit={hideEditUserName}/>
-        </section>
+        </article>
         }
-        <h2 className='sr-only'>Accounts</h2>
-        <section className='account'>
-          <div className='account-content-wrapper'>
-            <h3 className='account-title'>Argent Bank Checking (x8349)</h3>
-            <p className='account-amount'>$2,082.79</p>
-            <p className='account-amount-description'>Available Balance</p>
-          </div>
-          <div className='account-content-wrapper cta'>
-            <button className='transaction-button'>View transactions</button>
-          </div>
-        </section>
-        <section className='account'>
-          <div className='account-content-wrapper'>
-            <h3 className='account-title'>Argent Bank Savings (x6712)</h3>
-            <p className='account-amount'>$10,928.42</p>
-            <p className='account-amount-description'>Available Balance</p>
-          </div>
-          <div className='account-content-wrapper cta'>
-            <button className='transaction-button'>View transactions</button>
-          </div>
-        </section>
-        <section className='account'>
-          <div className='account-content-wrapper'>
-            <h3 className='account-title'>Argent Bank Credit Card (x8349)</h3>
-            <p className='account-amount'>$184.30</p>
-            <p className='account-amount-description'>Current Balance</p>
-          </div>
-          <div className='account-content-wrapper cta'>
-            <button className='transaction-button'>View transactions</button>
-          </div>
+        <section>
+          <h2 className='sr-only'>Accounts</h2>
+          <Account 
+            title='Checking (x8349)'
+            currency='$'
+            amount='2,082.79'
+            description='Available'
+          />
+          <Account
+            title='Savings (x6712)'
+            currency='$'
+            amount='10,928.42'
+            description='Available'
+          />
+          <Account
+            title='Credit Card (x8349)'
+            currency='$'
+            amount='184.30'
+            description='Current'
+          />
         </section>
       </main>
     </Layout>
