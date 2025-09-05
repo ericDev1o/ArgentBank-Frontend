@@ -1,8 +1,8 @@
-import { JSX, PropsWithChildren, ReactElement } from "react"
+import { JSX, PropsWithChildren, ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 
-import { AppStore, setupStore } from "./setupStore";
+import { AppStore, setupStore } from './setupStore';
 import { RootState } from '../../src/app/types'
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'>
