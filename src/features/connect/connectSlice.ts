@@ -9,8 +9,8 @@ export const connectThunk = createAsyncThunk<any, AuthFormReqPayload>(
     'login/connectThunk',
     async ({email, password}, thunkApi) => {
         const LOGIN_BODY = {
-            "email": email,
-            "password": password
+            'email': email,
+            'password': password
         }
         const response = await fetch(
             CONNECT_URL, 

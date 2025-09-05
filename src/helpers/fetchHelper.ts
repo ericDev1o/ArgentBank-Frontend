@@ -1,4 +1,4 @@
-import type { ThunkApi } from "@/app/types"
+import type { ThunkApi } from '@/app/types'
 
 /**
  * This function is a cross-slice thunk DRY helper.
