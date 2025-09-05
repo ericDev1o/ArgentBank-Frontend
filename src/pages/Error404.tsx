@@ -1,4 +1,4 @@
-import Layout from "../components/containers/Layout";
+import Layout from '../components/containers/Layout';
 
 export default function Error404() {
     return <Layout logIn={true}>
