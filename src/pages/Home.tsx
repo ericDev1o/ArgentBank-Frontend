@@ -2,7 +2,7 @@ import Feature from '@/components/UI/Feature';
 import Layout from '../components/containers/Layout';
 
 export default function Home() {
-    return <Layout logIn={true}>
+    return <Layout>
         <main>
           <div className='hero'>
             <section className='hero-content'>

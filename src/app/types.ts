@@ -15,6 +15,10 @@ export type UserFormPayload = {
     userName: string | null
 }
 
+/**
+ * Edit username use case
+ * See src/features/profile/profileSlice.ts
+ */
 export type UserPayload = {
     userName: string | null,
     token: string | null
