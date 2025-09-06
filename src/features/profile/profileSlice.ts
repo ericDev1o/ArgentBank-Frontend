@@ -19,6 +19,10 @@ export const getProfileThunk = createAsyncThunk<any, string | null>(
     }
 )
 
+/**
+ * Ask backend team for a greener & faster patch instead of put
+ * as the edit username use case only changes the username part of the profile.
+ */
 export const putProfileThunk = createAsyncThunk<any, UserPayload>(
     'profile/putProfileThunk',
     async ({userName, token}, thunkApi) => {

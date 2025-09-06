@@ -48,7 +48,7 @@ export default function User() {
   }, [])
 
   if(token) {
-    return <Layout logIn={false}>
+    return <Layout>
       <main className='main bg-dark main-bg-user'>
         { editUserName === false ? 
         <article className='user-welcome'>
