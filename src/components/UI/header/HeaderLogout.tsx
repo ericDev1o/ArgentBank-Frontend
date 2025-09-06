@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom'
  * See aliases paths in /tsconfig.json
  */
 import { connectSlice } from '@/features/connect/connectSlice'
+import { profileSlice } from '@/features/profile/profileSlice'
 import { AppDispatch } from '@/app/types'
 import { getUserName } from '@/app/selectors'
+
 
 export default function HeaderLogout() {
   const dispatch = useDispatch<AppDispatch>()
@@ -17,6 +19,7 @@ export default function HeaderLogout() {
   const handleSignOut = (e: React.MouseEvent) => {
     e.preventDefault()
     dispatch(connectSlice.actions.disconnect())
+    dispatch(profileSlice.actions.disconnect())
     navigate('/')
   }
   

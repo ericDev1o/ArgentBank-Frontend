@@ -10,13 +10,13 @@
       "pending": 0,
       "skipped": 0,
       "other": 0,
-      "start": 1757151114835,
-      "stop": 1757151121668
+      "start": 1757171010500,
+      "stop": 1757171016885
     },
     "tests": [
       {
         "name": "When form fields are validated then it must return errors when fields are empty",
-        "duration": 15,
+        "duration": 13,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -38,7 +38,7 @@
       },
       {
         "name": "When form fields are validated then it should not display any error for valid inputs",
-        "duration": 5,
+        "duration": 7,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -49,7 +49,7 @@
       },
       {
         "name": "When form fields are validated then it must display an error when user name field is empty.",
-        "duration": 4,
+        "duration": 5,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -60,7 +60,7 @@
       },
       {
         "name": "When form fields are validated then it should not display any error for valid user name input",
-        "duration": 1,
+        "duration": 2,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -71,7 +71,7 @@
       },
       {
         "name": "When UserForm is displayed then it must render inputs and button",
-        "duration": 333,
+        "duration": 217,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -93,7 +93,7 @@
       },
       {
         "name": "When UserForm is displayed then it must dispatch putProfileThunk and navigate on valid submit",
-        "duration": 340,
+        "duration": 236,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -104,7 +104,7 @@
       },
       {
         "name": "When LoginForm is displayed then it must render inputs and button",
-        "duration": 300,
+        "duration": 218,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -115,7 +115,7 @@
       },
       {
         "name": "When LoginForm is displayed then it must show validation errors when submitting empty form",
-        "duration": 149,
+        "duration": 99,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -126,7 +126,7 @@
       },
       {
         "name": "When LoginForm is displayed then it must dispatch connectThunk on valid submit",
-        "duration": 509,
+        "duration": 433,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",

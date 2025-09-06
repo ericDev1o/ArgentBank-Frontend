@@ -49,7 +49,13 @@ export const profileSlice = createSlice({
         lastName: '',
         userName: ''
     },
-    reducers: {},
+    reducers: {
+        disconnect: (currentState) => {
+            currentState.userName = ''
+            currentState.firstName = ''
+            currentState.lastName = ''
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(getProfileThunk.fulfilled, (state, action) => {
             state.firstName = action.payload.firstName,
