@@ -6,7 +6,7 @@ import { RootState } from '@/app/types'
 const persistConfig: PersistConfig<RootState> = {
     key: 'root',
     storage,
-    whitelist: ['connect']
+    whitelist: ['connect', 'profile']
 }
 
 export default persistConfig
