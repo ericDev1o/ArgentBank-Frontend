@@ -1,15 +1,15 @@
-.errorColor {
+.error-color {
     color: red;
 }
 
-.formInputError { 
+.form-input-error { 
     font-size: 0.8em 
 }
 
-.serverError {
+.server-error {
     margin-bottom: 10px;
 }
 
-.userForm {
+.user-form {
     margin-bottom: 20px;
 }

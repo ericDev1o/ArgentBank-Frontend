@@ -16,7 +16,7 @@ import {
 } from '@/app/selectors';
 import thunkError_helper from '@/helpers/thunkErrorHelper';
 
-import styles from '@/css/components/UI/form/form.module.css'
+import '@/css/components/UI/form/form.css'
 
 export default function UserForm({hideEdit}: {hideEdit: () => void}){
   const dispatch = useDispatch<AppDispatch>();
@@ -68,7 +68,7 @@ export default function UserForm({hideEdit}: {hideEdit: () => void}){
   return (
     <form onSubmit={handleSubmit} noValidate>
       {serverError && (
-        <div className={`${styles.serverError} ${styles.errorColor}`}>
+        <div className='server-error error-color'>
           {serverError}
         </div>
       )}

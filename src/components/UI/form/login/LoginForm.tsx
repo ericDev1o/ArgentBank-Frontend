@@ -9,9 +9,9 @@ import { AppDispatch, AuthFormReqPayload } from '@/app/types';
 import { connectThunk } from '@/features/connect/connectSlice';
 import { validate } from './validateLoginForm';
 import { InputField } from '../InputField';
-
-import styles from '@/css/components/UI/form/form.module.css'
 import thunkError_helper from '@/helpers/thunkErrorHelper';
+
+import '@/css/components/UI/form/form.css'
 
 /**
  * This component simplifies
@@ -55,7 +55,7 @@ export default function LoginForm(){
   return (
     <form onSubmit={handleSubmit} noValidate>
       {serverError && (
-        <div className={`${styles.serverError} ${styles.errorColor}`}>
+        <div className='server-error error-color'>
           {serverError}
         </div>
       )}

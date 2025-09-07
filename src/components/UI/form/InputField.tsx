@@ -1,7 +1,7 @@
 /**
  * See aliases paths in /tsconfig.json
  */
-import styles from '@/css/components/UI/form/form.module.css'
+import '@/css/components/UI/form/form.css'
 
 export const InputField = (
     { 
@@ -30,7 +30,7 @@ export const InputField = (
     {error && (
       <span 
         id={`${id}-error`}
-        className={`${styles.errorColor} ${styles.formInputError}`}
+        className='error-color form-input-error'
         >
         {error}
       </span>

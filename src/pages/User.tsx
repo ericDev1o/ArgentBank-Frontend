@@ -10,7 +10,7 @@ import UserForm from '../components/UI/form/username/UserForm'
 import thunkError_helper from '../helpers/thunkErrorHelper';
 import Account from '@/components/UI/Account';
 
-import styles from '../css/components/UI/form/form.module.css'
+import '../css/components/UI/form/form.css'
 
 export default function User() {
   const token = getToken()
@@ -56,7 +56,7 @@ export default function User() {
           <button className='edit-button' onClick={handleEditUsername}>Edit Name</button>
         </article>
         : 
-         <article className={`sign-in-content ${styles.userForm}`}>
+         <article className='sign-in-content user-form'>
           <h2 className='user-welcome-title'>Edit user info</h2>
           <UserForm hideEdit={hideEditUserName}/>
         </article>
