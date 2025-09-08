@@ -15,12 +15,18 @@ export default function HeaderLogout() {
   const navigate = useNavigate()
 
   const userName = getUserName()
+  const URL = window.location.pathname
 
   const handleSignOut = (e: React.MouseEvent) => {
-    e.preventDefault()
     dispatch(connectSlice.actions.disconnect())
     dispatch(profileSlice.actions.disconnect())
-    navigate('/')
+    if(URL.includes('user'))
+      navigate('/')
+  }
+
+  const handleShowUserPage = (e: React.MouseEvent) => {
+    if(! URL.includes('user'))
+      navigate('/user/1')
   }
   
   return <div>
@@ -30,6 +36,7 @@ export default function HeaderLogout() {
         color-blue 
         font-weight-bold
         cursor-pointer' 
+        onClick={handleShowUserPage}
       >
         <i className='fa fa-user-circle' aria-hidden='true'></i>
         {userName}
