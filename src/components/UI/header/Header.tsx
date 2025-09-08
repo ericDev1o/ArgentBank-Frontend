@@ -6,10 +6,21 @@ export default function Header() {
     const token = getToken()
 
     return <header>
-         <nav className='main-nav'>
-            <a className='main-nav-logo' href='/'>
+         <nav className='
+            main-nav 
+            display-flex 
+            justify-content-space-between 
+            align-items-center'
+        >
+            <a className='
+                main-nav-logo 
+                color-blue 
+                font-weight-bold 
+                align-items-center' 
+                href='/'
+            >
                 <img
-                    className='main-nav-logo-image'
+                    className='main-nav-logo-image width-200px'
                     src='/img/argentBankLogo.avif'
                     alt='Argent Bank Logo'
                     aria-hidden='true'
@@ -17,7 +28,7 @@ export default function Header() {
                     height='54px'
                     loading='lazy'
                 />
-                <h1 className='sr-only'>Argent Bank</h1>
+                <h1 className='sr-only padding-0'>Argent Bank</h1>
             </a>
             { token ?
             <HeaderLogout />

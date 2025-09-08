@@ -4,17 +4,25 @@ import Layout from '../components/containers/Layout';
 export default function Home() {
     return <Layout>
         <main>
-          <div className='hero'>
-            <section className='hero-content'>
-              <h2 className='sr-only'>Promoted Content</h2>
-              <p className='subtitle'>No fees.</p>
-              <p className='subtitle'>No minimum deposit.</p>
-              <p className='subtitle'>High interest rates.</p>
-              <p className='text'>Open a savings account with Argent Bank today!</p>
+          <div className='hero position-relative'>
+            <section className='
+              hero-content 
+              width-200px 
+              width-300px-gt920pxmq 
+              text-align-left 
+              margin-0-auto 
+              padding-2rem 
+              position-relative'
+            >
+              <h2 className='sr-only padding-0'>Promoted Content</h2>
+              <p className='subtitle margin-0 font-weight-bold font-size-1rem'>No fees.</p>
+              <p className='subtitle margin-0 font-weight-bold font-size-1rem'>No minimum deposit.</p>
+              <p className='subtitle margin-0 font-weight-bold font-size-1rem'>High interest rates.</p>
+              <p className='text font-size-1dot2rem'>Open a savings account with Argent Bank today!</p>
             </section>
           </div>
-          <section className='features'>
-            <h2 className='sr-only'>Features</h2>
+          <section className='features display-flex flex-direction-column'>
+            <h2 className='sr-only padding-0'>Features</h2>
             <Feature 
               imgSrc='/img/icon-chat.avif'
               iconType='chat icon'

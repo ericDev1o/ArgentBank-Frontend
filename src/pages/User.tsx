@@ -10,7 +10,7 @@ import UserForm from '../components/UI/form/username/UserForm'
 import thunkError_helper from '../helpers/thunkErrorHelper';
 import Account from '@/components/UI/Account';
 
-import styles from '../css/components/UI/form/form.module.css'
+import '../css/components/UI/form/form.css'
 
 export default function User() {
   const token = getToken()
@@ -49,20 +49,34 @@ export default function User() {
 
   if(token) {
     return <Layout>
-      <main className='main bg-dark main-bg-user'>
+      <main className='flex-1 bg-dark main-bg-user'>
         { editUserName === false ? 
-        <article className='user-welcome'>
+        <article className='user-welcome margin-bottom-2rem'>
           <h2 className='user-welcome-title'>Welcome back<br/>{firstName} {lastName}</h2>
-          <button className='edit-button' onClick={handleEditUsername}>Edit Name</button>
+          <button className='
+            button 
+            cursor-pointer 
+            edit-button 
+            font-weight-bold' 
+            onClick={handleEditUsername}
+          >
+            Edit Name
+          </button>
         </article>
         : 
-         <article className={`sign-in-content ${styles.userForm}`}>
+        <article className='
+          sign-in-content 
+          margin-0-auto 
+          user-form 
+          padding-2rem 
+          box-sizing-border-box'
+        >
           <h2 className='user-welcome-title'>Edit user info</h2>
           <UserForm hideEdit={hideEditUserName}/>
         </article>
         }
         <section>
-          <h2 className='sr-only'>Accounts</h2>
+          <h2 className='sr-only padding-0'>Accounts</h2>
           <Account 
             title='Checking (x8349)'
             currency='$'
