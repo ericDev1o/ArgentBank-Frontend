@@ -24,11 +24,17 @@ export default function HeaderLogout() {
   }
   
   return <div>
-      <a className='main-nav-item main-nav-item-user' >
+      <a className='
+        main-nav-item 
+        main-nav-item-user 
+        color-blue 
+        font-weight-bold
+        cursor-pointer' 
+      >
         <i className='fa fa-user-circle' aria-hidden='true'></i>
         {userName}
       </a>
-      <a className='main-nav-item' onClick={handleSignOut}>
+      <a className='main-nav-item color-blue font-weight-bold' onClick={handleSignOut}>
         <i className='fa fa-sign-out'></i>
         Sign Out
       </a>

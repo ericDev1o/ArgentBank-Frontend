@@ -1,7 +1,7 @@
 /**
  * See aliases paths in /tsconfig.json
  */
-import styles from '@/css/components/UI/form/form.module.css'
+import '@/css/components/UI/form/form.css'
 
 export const InputField = (
     { 
@@ -15,9 +15,15 @@ export const InputField = (
         error         
     }
 ) => (
-  <div className='input-wrapper'>
-    <label htmlFor={id}>{label}</label>
+  <div className='
+    input-wrapper 
+    display-flex 
+    flex-direction-column 
+    text-align-left'
+  >
+    <label className='font-weight-bold' htmlFor={id}>{label}</label>
     <input
+      className='font-size-1dot2rem'
       id={id}
       name={name}
       type={type}
@@ -30,7 +36,7 @@ export const InputField = (
     {error && (
       <span 
         id={`${id}-error`}
-        className={`${styles.errorColor} ${styles.formInputError}`}
+        className='error-color form-input-error'
         >
         {error}
       </span>

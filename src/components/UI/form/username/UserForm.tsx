@@ -16,7 +16,7 @@ import {
 } from '@/app/selectors';
 import thunkError_helper from '@/helpers/thunkErrorHelper';
 
-import styles from '@/css/components/UI/form/form.module.css'
+import '@/css/components/UI/form/form.css'
 
 export default function UserForm({hideEdit}: {hideEdit: () => void}){
   const dispatch = useDispatch<AppDispatch>();
@@ -68,7 +68,7 @@ export default function UserForm({hideEdit}: {hideEdit: () => void}){
   return (
     <form onSubmit={handleSubmit} noValidate>
       {serverError && (
-        <div className={`${styles.serverError} ${styles.errorColor}`}>
+        <div className='server-error error-color'>
           {serverError}
         </div>
       )}
@@ -102,10 +102,32 @@ export default function UserForm({hideEdit}: {hideEdit: () => void}){
         disabled={true}
         error={''}
       />
-      <button type='submit' className='sign-in-button'>
+      <button 
+        type='submit' 
+        className='
+          button 
+          cursor-pointer
+          display-block 
+          width-100percent 
+          margin-top-1rem 
+          padding-8px 
+          font-weight-bold 
+          font-size-1dot1rem'>
         Save
       </button>
-      <button type='button' className='sign-in-button' onClick={handleCancel}>
+      <button 
+        type='button' 
+        className='
+          button 
+          cursor-pointer
+          display-block 
+          width-100percent 
+          margin-top-1rem 
+          padding-8px 
+          font-weight-bold 
+          font-size-1dot1rem' 
+        onClick={handleCancel}
+      >
         Cancel
       </button>
     </form>
