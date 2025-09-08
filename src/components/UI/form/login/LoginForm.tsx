@@ -79,7 +79,17 @@ export default function LoginForm(){
         disabled={false}
         error={errors.password}
       />
-      <button type='submit' className='sign-in-button'>
+      <button 
+        type='submit' 
+        className='
+          button 
+          cursor-pointer
+          display-block 
+          width-100percent 
+          margin-top-1rem 
+          padding-8px 
+          font-weight-bold 
+          font-size-1dot1rem'>
         Sign In
       </button>
     </form>

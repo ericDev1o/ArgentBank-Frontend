@@ -11,7 +11,7 @@ export default function Feature(
             paragraph: string
         }
 ) {
-    return <article className='feature-item'>
+    return <article className='feature-item flex-1'>
         <img 
         src={imgSrc} 
         alt={iconType}
@@ -20,7 +20,7 @@ export default function Feature(
         height='100px'
         loading='lazy'
         />
-        <h3 className='feature-item-title'>{title}</h3>
+        <h3 className='feature-item-title font-weight-bold'>{title}</h3>
         <p>{paragraph}</p>
     </article>
 }
